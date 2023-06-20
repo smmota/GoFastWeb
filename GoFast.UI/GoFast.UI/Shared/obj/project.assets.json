@@ -460,19 +460,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\smota\\.nuget\\packages\\": {}
+    "C:\\Users\\marqu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Public\\Git\\GoFastWeb\\GoFast.UI\\GoFast.UI\\Shared\\GoFast.UI.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\marqu\\source\\GoFastWeb\\GoFast.UI\\GoFast.UI\\Shared\\GoFast.UI.Shared.csproj",
       "projectName": "GoFast.UI.Shared",
-      "projectPath": "C:\\Users\\Public\\Git\\GoFastWeb\\GoFast.UI\\GoFast.UI\\Shared\\GoFast.UI.Shared.csproj",
-      "packagesPath": "C:\\Users\\smota\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Public\\Git\\GoFastWeb\\GoFast.UI\\GoFast.UI\\Shared\\obj\\",
+      "projectPath": "C:\\Users\\marqu\\source\\GoFastWeb\\GoFast.UI\\GoFast.UI\\Shared\\GoFast.UI.Shared.csproj",
+      "packagesPath": "C:\\Users\\marqu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\marqu\\source\\GoFastWeb\\GoFast.UI\\GoFast.UI\\Shared\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\smota\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marqu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

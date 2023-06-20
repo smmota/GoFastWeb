@@ -49,6 +49,8 @@ namespace GoFast.UI.Shared.Services
         {
             HttpContent body = new StringContent(JsonConvert.SerializeObject(motoristaDTO), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(uriBase + "Motorista/Create", body);
+            response.EnsureSuccessStatusCode();
+
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 return response.Content.ReadAsStringAsync().Result.Substring(7, 36);
 

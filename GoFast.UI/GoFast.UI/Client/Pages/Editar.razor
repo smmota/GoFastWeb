@@ -2,13 +2,11 @@
 
 @using GoFast.UI.Shared.DTO.ViewModels;
 @using GoFast.UI.Shared.Services.Interfaces;
-@using BlazorInputFile
 
 @inject IMotoristaService serviceMotorista
 @inject IBlobService serviceBlob
 @inject IJSRuntime JSRuntime
 @inject IFileConverter fileUpload
-@*@inject IWebHostEnvironment Env*@
 @inject NavigationManager NavigationManager
 
 <h3>Editar</h3>
@@ -20,11 +18,11 @@
                 <div class="card-header">Documento</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                    <img class="img-account-profile mb-5" src="@motoristaDTOInput.Carro.DocumentoCarro.BlobStorage.Link" alt="">
+                    <img class="img-thumbnail mb-5" src="@motoristaDTOInput.Carro.DocumentoCarro.BlobStorage.Link" alt="">
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG ou PNG não pode ultrapassar 5 MB</div>
                     <!-- Profile picture upload button-->
-                    <BlazorInputFile.InputFile OnChange="HandleFileSelected" class="btn btn-primary" accept="image/png, image/jpg" />
+                    <InputFile OnChange="HandleFileSelected" class="btn btn-primary" accept="image/png, image/jpg" />
                 </div>
             </div>
         </div>
@@ -162,8 +160,6 @@
 </div>
 
 @code {
-    IFileListEntry arquivo;
-
     public string arquivoBase64;
 
     [Parameter]
@@ -173,27 +169,31 @@
 
     async void EditarMotorista()
     {
-        if (arquivoBase64 == string.Empty || arquivoBase64 == null)
-        {
 
-        }
-        else
-        {
-            await serviceMotorista.Update(new MotoristaViewModel());
+        await serviceMotorista.Update(new MotoristaViewModel());
 
-            NavigationManager.NavigateTo("Painel/" + IdMotorista);
+        await JSRuntime.InvokeVoidAsync("alert", "Motorista editado com sucesso!");
 
-        }
+        NavigationManager.NavigateTo("Painel/" + IdMotorista);
     }
 
-    async Task HandleFileSelected(IFileListEntry[] files)
+    async Task HandleFileSelected(InputFileChangeEventArgs e)
     {
         try
         {
-            arquivo = files.FirstOrDefault();
-            if (arquivo != null)
+            IBrowserFile selectedFiles = e.GetMultipleFiles().FirstOrDefault();
+
+            if (selectedFiles != null)
             {
-                arquivoBase64 = await fileUpload.UploadAsync(arquivo);
+                //arquivoBase64 = await fileUpload.UploadAsync(selectedFiles);
+                Stream stream = selectedFiles.OpenReadStream();
+                MemoryStream ms = new MemoryStream();
+                await stream.CopyToAsync(ms);
+                stream.Close();
+
+                var bytes = ms.ToArray();
+                arquivoBase64 = Convert.ToBase64String(bytes);
+                ms.Close();
             }
         }
         catch (Exception ex)

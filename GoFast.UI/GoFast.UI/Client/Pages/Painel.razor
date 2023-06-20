@@ -7,8 +7,7 @@
 
 @inject IMotoristaService MotoristaService;
 @inject NavigationManager NavigationManager
-
-@*<PageTitle>Motoristas</PageTitle>*@
+@inject IJSRuntime JSRuntime;
 
 <h3>Painel de Motoristas</h3>
 
@@ -62,6 +61,7 @@ else
                             </div>
                             <div class="d-flex gap-2 pt-4">
                                 <button type="button" class="btn btn-primary btn-sm w-50" @onclick="@(e => Editar(motorista.Id))"><i class="bx bx-edit-alt me-1"></i> Editar</button>
+                                <button type="button" class="btn btn-danger btn-sm w-50" @onclick="@(e => Excluir(motorista.Id))"><i class="bx bx-x me-1"></i> Excluir</button>
                             </div>
                         </div>
                     </div>
@@ -89,5 +89,24 @@ else
     public async void Editar(Guid id)
     {
         NavigationManager.NavigateTo("Editar/" + id);
+    }
+
+    public async void Excluir(Guid id)
+    {
+        try
+        {
+            await MotoristaService.DeleteById(id);
+
+            await JSRuntime.InvokeVoidAsync("alert", "Motorista excluído com sucesso!");
+
+            if (IdMotorista == string.Empty || IdMotorista == null)
+                NavigationManager.NavigateTo("Painel");
+            else
+                NavigationManager.NavigateTo("Painel/" + IdMotorista);
+        }
+        catch (Exception ex)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Falha ao excluir motorista");
+        }
     }
 }
