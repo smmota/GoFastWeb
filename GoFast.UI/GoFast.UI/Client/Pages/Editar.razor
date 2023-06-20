@@ -1,0 +1,209 @@
+﻿@page "/Editar/{idMotorista?}"
+
+@using GoFast.UI.Shared.DTO.ViewModels;
+@using GoFast.UI.Shared.Services.Interfaces;
+@using BlazorInputFile
+
+@inject IMotoristaService serviceMotorista
+@inject IBlobService serviceBlob
+@inject IJSRuntime JSRuntime
+@inject IFileConverter fileUpload
+@*@inject IWebHostEnvironment Env*@
+@inject NavigationManager NavigationManager
+
+<h3>Editar</h3>
+<div class="container-xl px-4 mt-4">
+    <div class="row">
+        <div class="col-xl-4">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header">Documento</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    <img class="img-account-profile mb-5" src="@motoristaDTOInput.Carro.DocumentoCarro.BlobStorage.Link" alt="">
+                    <!-- Profile picture help block-->
+                    <div class="small font-italic text-muted mb-4">JPG ou PNG não pode ultrapassar 5 MB</div>
+                    <!-- Profile picture upload button-->
+                    <BlazorInputFile.InputFile OnChange="HandleFileSelected" class="btn btn-primary" accept="image/png, image/jpg" />
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Informaçoes do Motorista</div>
+                <div class="card-body">
+                    <form>
+                        <!-- Form Group (username)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputUsername">Nome Completo</label>
+                            <input id="nameMotorista" class="form-control" type="text" placeholder="Digite nome completo" @bind-value="@motoristaDTOInput.Nome" />
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">Email</label>
+                                <input class="form-control" id="inputFirstName" type="email" placeholder="Digite seu nome" @bind-value="@motoristaDTOInput.Email" />
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">Data Nascimento</label>
+                                <input class="form-control" id="inputLastName" type="date" placeholder="Insira seu nascimnto" @bind-value="@motoristaDTOInput.Nascimento" />
+                            </div>
+                        </div>
+
+                        <div class="card-header">Informações do Documento</div>
+
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">Tipo Documento</label>
+                                <select class="form-control" name="inputLastName" id="inputLastName">
+                                    <option value="0">CPF</option>
+                                    <option value="1">CNPJ</option>
+                                    <option value="2">Carteira_Motorista</option>
+                                    <option value="3">Passaporte</option>
+                                    <option value="4">Renavam</option>
+                                    <option value="5">IPVA</option>
+                                    <option value="6">Laudo_Cautelar</option>
+                                </select>
+                            </div>
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">Número</label>
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="XXX-XXX-XXX-XX" @bind-value="@motoristaDTOInput.Carro.DocumentoCarro.Numero" />
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">Data Expedição</label>
+                                <input class="form-control" id="inputFirstName" type="date" placeholder="Insira a expedicao" @bind-value="@motoristaDTOInput.Carro.DocumentoCarro.Expedicao" />
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">Data Renovação</label>
+                                <input class="form-control" id="inputFirstName" type="date" placeholder="Insira a renovação" @bind-value="@motoristaDTOInput.Carro.DocumentoCarro.Renovacao" />
+                            </div>
+                        </div>
+
+                        <div class="card-header">Informações de Endereço</div>
+
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputOrgName">Rua</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Digite sua rua" @bind-value="@motoristaDTOInput.Endereco.Rua" />
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLocation">Numero</label>
+                                <input class="form-control" id="inputLocation" type="number" placeholder="Digite o número" @bind-value="@motoristaDTOInput.Endereco.Numero" />
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputOrgName">CEP</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Digite seu CEP" @bind-value="@motoristaDTOInput.Endereco.CEP" />
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLocation">Bairro</label>
+                                <input class="form-control" id="inputLocation" type="text" placeholder="Digite o bairro" @bind-value="@motoristaDTOInput.Endereco.Bairro" />
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputOrgName">Cidade</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Digite sua Cidade" @bind-value="@motoristaDTOInput.Endereco.Cidade" />
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLocation">Estado</label>
+                                <input class="form-control" id="inputLocation" type="text" placeholder="Digite o Estado" @bind-value="@motoristaDTOInput.Endereco.Estado" />
+                            </div>
+                        </div>
+                        <!-- Form Group (email address)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputEmailAddress">Complemento</label>
+                            <input class="form-control" id="inputEmailAddress" type="text" placeholder="Digite o Complemento" @bind-value="@motoristaDTOInput.Endereco.Complemento" />
+                        </div>
+
+                        <div class="card-header">Informaçoes do Carro</div>
+
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputOrgName">Placa</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Digite sua placa" @bind-value="@motoristaDTOInput.Carro.Placa" />
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLocation">Modelo</label>
+                                <input class="form-control" id="inputLocation" type="text" placeholder="Digite o modelo" @bind-value="@motoristaDTOInput.Carro.Modelo" />
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLocation">Ano De Fabricação</label>
+                                <input class="form-control" id="inputLocation" type="date" placeholder="Insira o ano de fabricação" @bind-value="@motoristaDTOInput.Carro.AnoFabricacao" />
+                            </div>
+                        </div>
+                        <!-- Save changes button-->
+                        <button class="btn btn-primary" type="button" @onclick="EditarMotorista">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    IFileListEntry arquivo;
+
+    public string arquivoBase64;
+
+    [Parameter]
+    public string IdMotorista { get; set; } = string.Empty;
+
+    public MotoristaViewModel motoristaDTOInput = new MotoristaViewModel("", "", DateTime.Now, new EnderecoViewModel("", 0, "", "", "", "", ""), new CarroViewModel("", "", DateTime.Now, new DocumentoCarroViewModel(DateTime.Now)));
+
+    async void EditarMotorista()
+    {
+        if (arquivoBase64 == string.Empty || arquivoBase64 == null)
+        {
+
+        }
+        else
+        {
+            await serviceMotorista.Update(new MotoristaViewModel());
+
+            NavigationManager.NavigateTo("Painel/" + IdMotorista);
+
+        }
+    }
+
+    async Task HandleFileSelected(IFileListEntry[] files)
+    {
+        try
+        {
+            arquivo = files.FirstOrDefault();
+            if (arquivo != null)
+            {
+                arquivoBase64 = await fileUpload.UploadAsync(arquivo);
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (IdMotorista != string.Empty && IdMotorista != null)
+            motoristaDTOInput = await serviceMotorista.GetById(IdMotorista);
+    }
+}

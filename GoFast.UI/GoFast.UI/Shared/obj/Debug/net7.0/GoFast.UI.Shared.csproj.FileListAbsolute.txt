@@ -1,0 +1,12 @@
+C:\Users\Public\Git\GoFastWeb\GoFast.UI\GoFast.UI\Shared\bin\Debug\net7.0\GoFast.UI.Shared.deps.json
+C:\Users\Public\Git\GoFastWeb\GoFast.UI\GoFast.UI\Shared\bin\Debug\net7.0\GoFast.UI.Shared.dll
+C:\Users\Public\Git\GoFastWeb\GoFast.UI\GoFast.UI\Shared\bin\Debug\net7.0\GoFast.UI.Shared.pdb
+C:\Users\Public\Git\GoFastWeb\GoFast.UI\GoFast.UI\Shared\obj\Debug\net7.0\GoFast.UI.Shared.csproj.AssemblyReference.cache
+C:\Users\Public\Git\GoFastWeb\GoFast.UI\GoFast.UI\Shared\obj\Debug\net7.0\GoFast.UI.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Public\Git\GoFastWeb\GoFast.UI\GoFast.UI\Shared\obj\Debug\net7.0\GoFast.UI.Shared.AssemblyInfoInputs.cache
+C:\Users\Public\Git\GoFastWeb\GoFast.UI\GoFast.UI\Shared\obj\Debug\net7.0\GoFast.UI.Shared.AssemblyInfo.cs
+C:\Users\Public\Git\GoFastWeb\GoFast.UI\GoFast.UI\Shared\obj\Debug\net7.0\GoFast.UI.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Public\Git\GoFastWeb\GoFast.UI\GoFast.UI\Shared\obj\Debug\net7.0\GoFast.UI.Shared.dll
+C:\Users\Public\Git\GoFastWeb\GoFast.UI\GoFast.UI\Shared\obj\Debug\net7.0\refint\GoFast.UI.Shared.dll
+C:\Users\Public\Git\GoFastWeb\GoFast.UI\GoFast.UI\Shared\obj\Debug\net7.0\GoFast.UI.Shared.pdb
+C:\Users\Public\Git\GoFastWeb\GoFast.UI\GoFast.UI\Shared\obj\Debug\net7.0\ref\GoFast.UI.Shared.dll
