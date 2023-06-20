@@ -170,7 +170,7 @@
     async void EditarMotorista()
     {
 
-        await serviceMotorista.Update(new MotoristaViewModel());
+        await serviceMotorista.Update(motoristaDTOInput);
 
         await JSRuntime.InvokeVoidAsync("alert", "Motorista editado com sucesso!");
 

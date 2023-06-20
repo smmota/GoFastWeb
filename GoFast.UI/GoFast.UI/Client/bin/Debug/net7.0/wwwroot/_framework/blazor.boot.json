@@ -204,14 +204,14 @@
       "netstandard.dll": "sha256-OYYuPT3JUknj4LdYIa58zF7kDB3tCnLzjCSuhEjtKXM=",
       "System.Private.CoreLib.dll": "sha256-EVS7zPxPV\/41g2mzPwdXtwiigWxI\/SeAHme1IgyD6tc=",
       "GoFast.UI.Shared.dll": "sha256-zXRnOkpwCTQakBoSuaWeHYpG4LBxTad3Mru4EEA8mOc=",
-      "GoFast.UI.Client.dll": "sha256-mJ3HKmf6p\/gzRFQvCVP3+IxZSNWTV512rY8yTHMFlaM="
+      "GoFast.UI.Client.dll": "sha256-o9F+QlMtBi4najzPTPGlXb9FHR+FY8LyuPVuKE0kT5I="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "GoFast.UI.Shared.pdb": "sha256-PdGtI\/wk4VdLiZdmcnmY4GeLaMGtr9Fyyqye4wNRQA8=",
-      "GoFast.UI.Client.pdb": "sha256-fpvBOsWE9pietjFlek6fXJlcA5d\/ePba8K8O5JwZGu8="
+      "GoFast.UI.Client.pdb": "sha256-LGjpqJUTM+k419vqUBtaUzY1yq5Oovp2UY\/cMhy+ivM="
     },
     "runtime": {
       "dotnet.7.0.5.uv32ctukos.js": "sha256-codB25EodaFEP43MDCfMBuKXU4LqurUKnQrpoMIFnPs=",
