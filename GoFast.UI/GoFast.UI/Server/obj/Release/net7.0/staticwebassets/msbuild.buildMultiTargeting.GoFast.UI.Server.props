@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GoFast.UI.Server.props" />
+</Project>

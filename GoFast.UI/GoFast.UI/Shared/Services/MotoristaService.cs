@@ -8,7 +8,7 @@ namespace GoFast.UI.Shared.Services
 {
     public class MotoristaService : IMotoristaService
     {
-        public readonly string uriBase = "https://localhost:7010/api/";
+        public readonly string uriBase = "https://apigofast.azurewebsites.net/api/";
         private readonly HttpClient _httpClient;
 
         public MotoristaService(HttpClient httpClient)

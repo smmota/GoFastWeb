@@ -203,14 +203,14 @@
       "mscorlib.dll": "sha256-qqpKd+W+AFb6UxudEYEKzrz7ma81p5LrWUwPBVvHV4U=",
       "netstandard.dll": "sha256-OYYuPT3JUknj4LdYIa58zF7kDB3tCnLzjCSuhEjtKXM=",
       "System.Private.CoreLib.dll": "sha256-EVS7zPxPV\/41g2mzPwdXtwiigWxI\/SeAHme1IgyD6tc=",
-      "GoFast.UI.Shared.dll": "sha256-zXRnOkpwCTQakBoSuaWeHYpG4LBxTad3Mru4EEA8mOc=",
+      "GoFast.UI.Shared.dll": "sha256-PEyFVDAmRkjSNQy1+XOlNVQdOD1pz21+6XdCjTq6UwY=",
       "GoFast.UI.Client.dll": "sha256-o9F+QlMtBi4najzPTPGlXb9FHR+FY8LyuPVuKE0kT5I="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "GoFast.UI.Shared.pdb": "sha256-PdGtI\/wk4VdLiZdmcnmY4GeLaMGtr9Fyyqye4wNRQA8=",
+      "GoFast.UI.Shared.pdb": "sha256-\/kFcM8xs5D7Rm2sfgXjjUiq4oGqwhOBwr\/UCR5UUL5k=",
       "GoFast.UI.Client.pdb": "sha256-LGjpqJUTM+k419vqUBtaUzY1yq5Oovp2UY\/cMhy+ivM="
     },
     "runtime": {
